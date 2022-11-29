@@ -10,14 +10,17 @@ const routes: Routes = [
   },
   {
     path: 'users',
+    component:LayoutComponent,
     loadChildren: () => import('./users/users.module').then(m => m.UsersModule)
   },
   {
     path: 'subjects',
+    component:LayoutComponent,
     loadChildren: () => import('./subjects/subjects.module').then(m => m.SubjectsModule)
   },
   {
     path: 'questions',
+    component:LayoutComponent,
     loadChildren: () => import('./questions/questions.module').then(m => m.QuestionsModule)
   }
 ];

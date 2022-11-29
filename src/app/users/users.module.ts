@@ -1,6 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { SharedModule } from "../shared/shared.module";
+import { AddressComponent } from "./components/address/address.component";
 import { UsersRoutingModule } from "./users-routing.module";
 import { UsersComponent } from './users.component'
 
@@ -11,7 +12,8 @@ import { UsersComponent } from './users.component'
         SharedModule
     ],
     declarations: [
-        UsersComponent
+        UsersComponent,
+        AddressComponent
     ],
     exports: []
 })

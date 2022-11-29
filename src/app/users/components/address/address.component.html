@@ -1,0 +1,63 @@
+<div [formGroup]="form">
+  <div class="row">
+    <div class=" mt-2">
+      <h6>ที่อยู่ {{index +1 }}</h6>
+    </div>
+    <div class="col-4">
+      <div class="form-group">
+        <label for="email" class="form-label">House Number</label>
+        <input type="text" class="form-control" placeholder="house name" formControlName="houseNo" [autocomplete]="true"
+          [required]="form.get('houseNo')?.invalid == true">
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form-group">
+        <label for="email" class="form-label">Building Name/Floors.</label>
+        <input type="text" class="form-control" placeholder="building name" formControlName="buildingName"
+          [autocomplete]="true">
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form-group">
+        <label for="email" class="form-label">Village Name</label>
+        <input type="text" class="form-control" placeholder="village name" formControlName="villageName"
+          [autocomplete]="true">
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form-group">
+        <label for="email" class="form-label">Village Name</label>
+        <input type="text" class="form-control" placeholder="village name" formControlName="villageNo"
+          [autocomplete]="true">
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form-group">
+        <label for="email" class="form-label">SubDistrict</label>
+        <input type="text" class="form-control" placeholder="subDisctrict" formControlName="subDisctrict"
+          [autocomplete]="true" [required]="form.get('subDisctrict')?.invalid == true">
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form-group">
+        <label for="email" class="form-label">District</label>
+        <input type="text" class="form-control" placeholder="district" formControlName="district" [autocomplete]="true"
+          [required]="form.get('district')?.invalid == true">
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form-group">
+        <label for="email" class="form-label">Province</label>
+        <input type="text" class="form-control" placeholder="province" formControlName="province" [autocomplete]="true"
+          [required]="form.get('province')?.invalid == true">
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form-group">
+        <label for="email" class="form-label">Province</label>
+        <input type="text" class="form-control" placeholder="zipcode" formControlName="zipcode" [autocomplete]="true"
+          [required]="form.get('zipcode')?.invalid == true">
+      </div>
+    </div>
+  </div>
+</div>

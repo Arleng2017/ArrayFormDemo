@@ -1,5 +1,5 @@
 <div class="container mt-4" [ngClass]="{'was-validated': isSubmitted}">
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <form [formGroup]="form2" (ngSubmit)="onSubmit()">
         <div class="row">
             <div class="col-12">
                 <h4>รายละเอียดผู้ใช้งาน</h4>
@@ -43,11 +43,89 @@
                 </div>
             </div>
             <div class="col-4"></div>
-            <div class="col-12 mt-4">
-                <h5>ข้อมูลที่อยู่</h5>
+            <div class="col-12 d-flex justify-content-center align-items-center">
+                <div class="col-6">
+                    <h5>ข้อมูลที่อยู่</h5>
+                </div>
+                <div class="col-6 mt-4 text-end">
+                    <button class="btn btn-secondary" (click)="createNewAddress()" type="button">เพิ่มที่อยู่</button>
+                </div>
             </div>
-            <div class="row" formGroupName="address">
-                <div class="col-4">
+            <div class="row" formArrayName="address">
+                <div *ngFor="let address of Address.controls; let i = index" [formGroupName]="i" class="mt-3">
+                    <div class="col-12 text-end" *ngIf="Address.controls.length > 1">
+                        <button class="btn btn-danger btn-sm" (click)="deleteAddress(i)">ลบ</button>
+                    </div>
+                    <app-address [form]="address" [index]="i"></app-address>
+                    <!-- <div class="row">
+                        <div class=" mt-2">
+                            <h6>ที่อยู่ {{i+1}}</h6>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="email" class="form-label">House Number</label>
+                                <input type="text" class="form-control" placeholder="house name"
+                                    formControlName="houseNo" [autocomplete]="true"
+                                    [required]="form.controls['address'].get('houseNo')?.invalid == true">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="email" class="form-label">Building Name/Floors.</label>
+                                <input type="text" class="form-control" placeholder="building name"
+                                    formControlName="buildingName" [autocomplete]="true">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="email" class="form-label">Village Name</label>
+                                <input type="text" class="form-control" placeholder="village name"
+                                    formControlName="villageName" [autocomplete]="true">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="email" class="form-label">Village Name</label>
+                                <input type="text" class="form-control" placeholder="village name"
+                                    formControlName="villageNo" [autocomplete]="true">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="email" class="form-label">SubDistrict</label>
+                                <input type="text" class="form-control" placeholder="subDisctrict"
+                                    formControlName="subDisctrict" [autocomplete]="true"
+                                    [required]="form.controls['address'].get('subDisctrict')?.invalid == true">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="email" class="form-label">District</label>
+                                <input type="text" class="form-control" placeholder="district"
+                                    formControlName="district" [autocomplete]="true"
+                                    [required]="form.controls['address'].get('district')?.invalid == true">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="email" class="form-label">Province</label>
+                                <input type="text" class="form-control" placeholder="province"
+                                    formControlName="province" [autocomplete]="true"
+                                    [required]="form.controls['address'].get('province')?.invalid == true">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="email" class="form-label">Province</label>
+                                <input type="text" class="form-control" placeholder="zipcode" formControlName="zipcode"
+                                    [autocomplete]="true"
+                                    [required]="form.controls['address'].get('zipcode')?.invalid == true">
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <!-- <div class="col-4">
                     <div class="form-group">
                         <label for="email" class="form-label">House Number</label>
                         <input type="text" class="form-control" placeholder="house name" formControlName="houseNo"
@@ -98,13 +176,13 @@
                         <input type="text" class="form-control" placeholder="zipcode" formControlName="zipcode"
                             [autocomplete]="true" [required]="form.controls['address'].get('zipcode')?.invalid == true">
                     </div>
-                </div>
-
-            </div>
+                </div>-->
+            <!-- </div>  -->
         </div>
         <div class="row">
-            <div class="col mt-4 text-center">
-                <button class="btn btn-primary" type="submit">Submit</button>
+            <div class="col mt-4 mb-4 text-center">
+                <button class="btn btn-danger m-2" type="button">Cancel</button>
+                <button class="btn btn-success" type="submit">Submit</button>
             </div>
         </div>
     </form>
