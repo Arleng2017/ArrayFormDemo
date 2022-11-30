@@ -1,3 +1,49 @@
-<p>
-  personal-info works!
-</p>
+<div>
+  <div [formGroup]="personalInfo" class="w-full col-12 row mt-4 border pb-4">
+    <div class="col-12 p-2  bg-primary bg-gradient text-white d-flex align-items-center mb-2">
+      <h5 class="">ข้อมูลส่วนตัว</h5>
+    </div>
+    <div class="col-2">
+      <div class="form-group">
+        <label for="prename" class="form-label">PreName</label>
+        <input type="text" class="form-control" placeholder="คำนำหน้า" formControlName="prename"
+          [required]="personalInfo.controls['prename'].errors?.required == true">
+      </div>
+    </div>
+    <div class="col-5">
+      <div class="form-group">
+        <label for="firstname" class="form-label">FirstName</label>
+        <input type="text" class="form-control" placeholder="name" formControlName="firstName" [autocomplete]="true"
+          [required]="personalInfo.controls['firstName'].errors?.required">
+      </div>
+    </div>
+    <div class="col-5">
+      <div class="form-group">
+        <label for="" class="form-label">LastName</label>
+        <input type="text" class="form-control" placeholder="lastname" formControlName="lastName" [autocomplete]="true"
+          [required]="personalInfo.controls['lastName'].errors?.required">
+      </div>
+    </div>
+    <div class="col-4 form-group">
+      <label for="" class="form-label">วันเดือนปีเกิด</label>
+      <input type="date" class="form-control" formControlName="dateOfBirth"
+        [required]="personalInfo.controls['dateOfBirth']?.errors?.required">
+    </div>
+    <div class="col-4 form-group">
+      <label for="" class="form-label">น้ำหนัก</label>
+      <div class="input-group">
+        <input type="number" class="form-control" formControlName="weigth" placeholder="น้ำหนัก"
+          [required]=" personalInfo.controls['weigth']?.errors?.required" >
+        <span class="input-group-text">กิโลกรัม</span>
+      </div>
+    </div>
+    <div class="col-4 form-group">
+      <label for="" class="form-label">ส่วนสูง</label>
+      <div class="input-group">
+        <input type="number" class="form-control" placeholder="ส่วนสูง" formControlName="height"
+          [required]="personalInfo.controls['height']?.errors?.required" >
+        <span class="input-group-text">เซนติเมตร</span>
+      </div>
+    </div>
+  </div>
+</div>

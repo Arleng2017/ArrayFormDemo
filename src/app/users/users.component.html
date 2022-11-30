@@ -1,183 +1,31 @@
 <div class="container mt-4" [ngClass]="{'was-validated': isSubmitted}">
-    <form [formGroup]="form2" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <!-- <div class="w-full"> -->
+        <h4 class="p-0">รายละเอียดผู้ใช้งาน</h4>
+        <!-- </div> -->
+    </div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="row">
-            <div class="col-12">
-                <h4>รายละเอียดผู้ใช้งาน</h4>
-            </div>
-            <div class="col-12 mt-4">
-                <h5>ข้อมูลผู้ใช้งาน</h5>
-            </div>
-            <div class="col-2">
-                <div class="form-group">
-                    <label for="prename" class="form-label">PreName</label>
-                    <input type="text" class="form-control" placeholder="คำนำหน้า" formControlName="prename"
-                        [required]="form.controls['prename'].invalid">
-                </div>
-            </div>
-            <div class="col-5">
-                <div class="form-group">
-                    <label for="firstname" class="form-label">FirstName</label>
-                    <input type="text" class="form-control" placeholder="name" formControlName="firstName"
-                        [autocomplete]="true" [required]="form.controls['firstName'].invalid">
-                </div>
-            </div>
-            <div class="col-5">
-                <div class="form-group">
-                    <label for="" class="form-label">LastName</label>
-                    <input type="text" class="form-control" placeholder="lastname" formControlName="lastName"
-                        [autocomplete]="true" [required]="form.controls['lastName'].invalid">
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="form-group">
-                    <label for="tel" class="form-label">Tel</label>
-                    <input type="text" class="form-control" placeholder="tel" formControlName="tel"
-                        [autocomplete]="true" [required]="form.controls['tel'].invalid">
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="form-group">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="text" class="form-control" placeholder="email" formControlName="email"
-                        [autocomplete]="true">
-                </div>
-            </div>
+            <app-personal-information class="p-0" [personalInformation]="personalInformation">
+            </app-personal-information>
             <div class="col-4"></div>
-            <div class="col-12 d-flex justify-content-center align-items-center">
-                <div class="col-6">
+        </div>
+        <div class="row">lorem</div>
+
+        <div formArrayName="address" class="mt-4 p-0 row w-full col-12">
+            <div class=" bg-primary">
+                <div class="col-12 d-flex justify-content-between align-items-center p-2">
                     <h5>ข้อมูลที่อยู่</h5>
-                </div>
-                <div class="col-6 mt-4 text-end">
-                    <button class="btn btn-secondary" (click)="createNewAddress()" type="button">เพิ่มที่อยู่</button>
-                </div>
-            </div>
-            <div class="row" formArrayName="address">
-                <div *ngFor="let address of Address.controls; let i = index" [formGroupName]="i" class="mt-3">
-                    <div class="col-12 text-end" *ngIf="Address.controls.length > 1">
-                        <button class="btn btn-danger btn-sm" (click)="deleteAddress(i)">ลบ</button>
-                    </div>
-                    <app-address [form]="address" [index]="i"></app-address>
-                    <!-- <div class="row">
-                        <div class=" mt-2">
-                            <h6>ที่อยู่ {{i+1}}</h6>
-                        </div>
-                        <div class="col-4">
-                            <div class="form-group">
-                                <label for="email" class="form-label">House Number</label>
-                                <input type="text" class="form-control" placeholder="house name"
-                                    formControlName="houseNo" [autocomplete]="true"
-                                    [required]="form.controls['address'].get('houseNo')?.invalid == true">
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="form-group">
-                                <label for="email" class="form-label">Building Name/Floors.</label>
-                                <input type="text" class="form-control" placeholder="building name"
-                                    formControlName="buildingName" [autocomplete]="true">
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="form-group">
-                                <label for="email" class="form-label">Village Name</label>
-                                <input type="text" class="form-control" placeholder="village name"
-                                    formControlName="villageName" [autocomplete]="true">
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="form-group">
-                                <label for="email" class="form-label">Village Name</label>
-                                <input type="text" class="form-control" placeholder="village name"
-                                    formControlName="villageNo" [autocomplete]="true">
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="form-group">
-                                <label for="email" class="form-label">SubDistrict</label>
-                                <input type="text" class="form-control" placeholder="subDisctrict"
-                                    formControlName="subDisctrict" [autocomplete]="true"
-                                    [required]="form.controls['address'].get('subDisctrict')?.invalid == true">
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="form-group">
-                                <label for="email" class="form-label">District</label>
-                                <input type="text" class="form-control" placeholder="district"
-                                    formControlName="district" [autocomplete]="true"
-                                    [required]="form.controls['address'].get('district')?.invalid == true">
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="form-group">
-                                <label for="email" class="form-label">Province</label>
-                                <input type="text" class="form-control" placeholder="province"
-                                    formControlName="province" [autocomplete]="true"
-                                    [required]="form.controls['address'].get('province')?.invalid == true">
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="form-group">
-                                <label for="email" class="form-label">Province</label>
-                                <input type="text" class="form-control" placeholder="zipcode" formControlName="zipcode"
-                                    [autocomplete]="true"
-                                    [required]="form.controls['address'].get('zipcode')?.invalid == true">
-                            </div>
-                        </div>
-                    </div> -->
+                    <button class="btn btn-icon text-white" (click)="createNewAddress()" type="button">+
+                        เพิ่มที่อยู่</button>
                 </div>
             </div>
-            <!-- <div class="col-4">
-                    <div class="form-group">
-                        <label for="email" class="form-label">House Number</label>
-                        <input type="text" class="form-control" placeholder="house name" formControlName="houseNo"
-                            [autocomplete]="true" [required]="form.controls['address'].get('houseNo')?.invalid == true">
-                    </div>
+            <div *ngFor="let address of Address.controls; let i = index" [formGroupName]="i" class="mt-3">
+                <div class="col-12 text-end" *ngIf="Address.controls.length > 1">
+                    <button class="btn btn-danger btn-sm" (click)="deleteAddress(i)">ลบ</button>
                 </div>
-                <div class="col-4">
-                    <div class="form-group">
-                        <label for="email" class="form-label">Building Name/Floors.</label>
-                        <input type="text" class="form-control" placeholder="building name"
-                            formControlName="buildingName" [autocomplete]="true">
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="form-group">
-                        <label for="email" class="form-label">Village Name</label>
-                        <input type="text" class="form-control" placeholder="village name" formControlName="villageName"
-                            [autocomplete]="true">
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="form-group">
-                        <label for="email" class="form-label">SubDistrict</label>
-                        <input type="text" class="form-control" placeholder="subDisctrict"
-                            formControlName="subDisctrict" [autocomplete]="true"
-                            [required]="form.controls['address'].get('subDisctrict')?.invalid == true">
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="form-group">
-                        <label for="email" class="form-label">District</label>
-                        <input type="text" class="form-control" placeholder="district" formControlName="district"
-                            [autocomplete]="true"
-                            [required]="form.controls['address'].get('district')?.invalid == true">
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="form-group">
-                        <label for="email" class="form-label">Province</label>
-                        <input type="text" class="form-control" placeholder="province" formControlName="province"
-                            [autocomplete]="true"
-                            [required]="form.controls['address'].get('province')?.invalid == true">
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="form-group">
-                        <label for="email" class="form-label">Province</label>
-                        <input type="text" class="form-control" placeholder="zipcode" formControlName="zipcode"
-                            [autocomplete]="true" [required]="form.controls['address'].get('zipcode')?.invalid == true">
-                    </div>
-                </div>-->
-            <!-- </div>  -->
+                <app-address [form]="address" [index]="i"></app-address>
+            </div>
         </div>
         <div class="row">
             <div class="col mt-4 mb-4 text-center">
@@ -187,3 +35,35 @@
         </div>
     </form>
 </div>
+<div class="container">
+    <div class="alert alert-warning" role="alert">
+        A simple warning alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+    </div>
+    <div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                Hello, world! This is a toast message.
+            </div>
+            <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade " id="exampleModalToggle" aria-hidden="true" tabindex="1" data-bs-keyboard="false"
+    data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Modal 1</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Show a second modal and hide this one with the button below.
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+<a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a>

@@ -1,3 +1,5 @@
-<p>
-  personal-information works!
-</p>
+<div class="w-full col-12" [formGroup]="personalInformation">
+  <app-personal-info class="mb-4" [personalInfo]="personalInfo"></app-personal-info>
+  <div class="mt-4"></div>
+  <app-contact class="mt-4" [contacts]="contacts"></app-contact>
+</div>

@@ -1,3 +1,20 @@
-<p>
-  contact works!
-</p>
+<div>
+  <div [formGroup]="contacts" class="w-full col-12 row border pb-4">
+    <div class="col-12 bg-primary bg-gradient p-2 text-white mb-2">
+      <h5>ข้อมูลการติดต่อ</h5>
+    </div>
+    <div class="col-4">
+      <div class="form-group">
+        <label for="tel" class="form-label">Tel</label>
+        <input type="text" class="form-control" placeholder="tel" formControlName="tel" [autocomplete]="true"
+          [required]="contacts.controls['tel']?.errors?.required" mask='000-000-0000'>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form-group">
+        <label for="email" class="form-label">Email</label>
+        <input type="text" class="form-control" placeholder="email" formControlName="email" [autocomplete]="true">
+      </div>
+    </div>
+  </div>
+</div>
