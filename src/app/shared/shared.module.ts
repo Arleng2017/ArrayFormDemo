@@ -3,18 +3,19 @@ import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgxMaskModule } from "ngx-mask";
 
-const modules = [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule
-]
-
 @NgModule({
+    
     imports: [
-        modules,
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
         NgxMaskModule.forRoot(),
     ],
-    exports: [modules]
+    exports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule
+    ]
 })
 
 export class SharedModule { }

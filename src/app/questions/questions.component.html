@@ -15,7 +15,7 @@
       <div *ngFor="let answer of answers.controls; let i = index;" [formGroupName]="i" class="mt-4 card p-4 col-12 "
         [ngClass]="answer.status == 'INVALID' && isSubmitted ? 'border-danger': ''">
         <div>
-          <h5>{{questions[i].question_th}}</h5>
+          <h5 >{{questions[i].question_th}}</h5>
           <div class="form-check" *ngFor="let choice of questions[i].choice">
             <input class="form-check-input "
               [ngClass]="answer.get('choiceSeleted')?.errors && isSubmitted ? 'border-danger':''" type="radio"

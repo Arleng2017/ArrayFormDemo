@@ -1,0 +1,25 @@
+<div class="modal-header">
+    <h4 class="modal-title">My Form</h4>
+    <button type="button" class="close" aria-label="Close" (click)="closeModal()"></button>
+</div>
+
+{{name | json}}
+<div>
+    <form [formGroup]="form" (ngSubmit)="submitForm()">
+        <div class="modal-body">
+            <div class="container">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" formControlName="username" />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" formControlName="password" />
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-success">Submit Form</button>
+        </div>
+    </form>
+</div>

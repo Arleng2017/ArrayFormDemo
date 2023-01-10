@@ -1,8 +1,6 @@
 <div class="container mt-4" [ngClass]="{'was-validated': isSubmitted}">
     <div class="row">
-        <!-- <div class="w-full"> -->
         <h4 class="p-0">รายละเอียดผู้ใช้งาน</h4>
-        <!-- </div> -->
     </div>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="row">
@@ -67,3 +65,4 @@
     </div>
 </div>
 <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a>
+<a class="btn btn-primary" type="button" (click)="openModal()">Open first modal</a>

@@ -6,22 +6,31 @@
     <div class="col-2">
       <div class="form-group">
         <label for="prename" class="form-label">PreName</label>
-        <input type="text" class="form-control" placeholder="คำนำหน้า" formControlName="prename"
-          [required]="personalInfo.controls['prename'].errors?.required == true">
+        <!-- <input type="text" class="form-control" placeholder="คำนำหน้า" formControlName="prename"
+          [required]="personalInfo.controls['prename'].errors?.required == true"> -->
+        <select class="form-select" placeholder="คำนำหน้า" formControlName="prename"
+          [required]="personalInfo.controls['prename'].errors?.required">
+          <option value="" selected>เลือก...</option>
+          <option [value]="prefix.value" *ngFor="let prefix of prefix$">{{prefix.text}}</option>
+          <!-- <option value="">sdf</option>
+          <option value="">sdf</option>
+          <option value="">sdf</option> -->
+        </select>
       </div>
+
     </div>
     <div class="col-5">
       <div class="form-group">
         <label for="firstname" class="form-label">FirstName</label>
         <input type="text" class="form-control" placeholder="name" formControlName="firstName" [autocomplete]="true"
-          [required]="personalInfo.controls['firstName'].errors?.required">
+          [required]="personalInfo.controls['firstName']?.errors?.required">
       </div>
     </div>
     <div class="col-5">
       <div class="form-group">
         <label for="" class="form-label">LastName</label>
         <input type="text" class="form-control" placeholder="lastname" formControlName="lastName" [autocomplete]="true"
-          [required]="personalInfo.controls['lastName'].errors?.required">
+          [required]="personalInfo.controls['lastName']?.errors?.required">
       </div>
     </div>
     <div class="col-4 form-group">
@@ -33,7 +42,7 @@
       <label for="" class="form-label">น้ำหนัก</label>
       <div class="input-group">
         <input type="number" class="form-control" formControlName="weigth" placeholder="น้ำหนัก"
-          [required]=" personalInfo.controls['weigth']?.errors?.required" >
+          [required]=" personalInfo.controls['weigth']?.errors?.required">
         <span class="input-group-text">กิโลกรัม</span>
       </div>
     </div>
@@ -41,7 +50,7 @@
       <label for="" class="form-label">ส่วนสูง</label>
       <div class="input-group">
         <input type="number" class="form-control" placeholder="ส่วนสูง" formControlName="height"
-          [required]="personalInfo.controls['height']?.errors?.required" >
+          [required]="personalInfo.controls['height']?.errors?.required">
         <span class="input-group-text">เซนติเมตร</span>
       </div>
     </div>

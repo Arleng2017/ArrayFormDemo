@@ -1,4 +1,10 @@
 <div class="container">
+    <div class="row mt-4 text-end">
+        <div class="col-12">
+            <button class="btn btn-primary" (click)="createSubject()">Create Subject</button>
+            <button class="btn btn-primary" (click)="openCancel()">Cancel</button>
+        </div>
+    </div>
     <form class="row" [formGroup]="form" (ngSubmit)="onSubmit()">
         <div [ngClass]="isSubmitted ? 'was-validated':''">
             <div class="col-6">

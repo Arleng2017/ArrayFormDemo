@@ -1,0 +1,21 @@
+<div class="container">
+    <div *ngIf="todoSelected.length > 0" class="row">
+        <h4>Selected</h4>
+        <ul class="list-group my-4">
+            <li *ngFor="let item of todoSelected" class="list-group-item">
+                <div class="p-2 mb-2" (click)="unSelectecItem(item)">
+                    {{item.todo}}
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <ul class="list-group my-4">
+        <h4>UnSelected</h4>
+        <li *ngFor="let item of todo$" class="list-group-item">
+            <div appTextHover class="p-2 mb-2" (click)="selectecItem(item)">
+                {{item.todo}}
+            </div>
+        </li>
+    </ul>
+</div>

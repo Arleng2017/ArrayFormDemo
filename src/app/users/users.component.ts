@@ -1,17 +1,24 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { throwIfEmpty } from 'rxjs';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AddressComponent } from './components/address/address.component';
+import { ComfirmDialogComponent } from './../shared/comfirm-dialog/comfirm-dialog.component'
+import { ConfigurationServices } from '../shared/services/configuration.service';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
     selector: 'app-users',
     templateUrl: './users.component.html',
     styleUrls: ['./user.component.scss']
 })
-export class UsersComponent {
+export class UsersComponent implements OnInit {
     isSubmitted: boolean = false;
     form: FormGroup;
+    prefix$ = []
 
-    constructor(private fb: FormBuilder) {
+    private _unsubscribeAll: Subject<any> = new Subject<any>();
+
+    constructor(private fb: FormBuilder, private modalService: NgbModal) {
         this.form = this.fb.group({
             personalInformation: this.fb.group({
                 personalInfo: this.fb.group({
@@ -42,12 +49,14 @@ export class UsersComponent {
         });
     }
 
+    ngOnInit(): void {
+    }
+
     onSubmit() {
         this.isSubmitted = true;
         console.log(this.form.value);
         console.log(this.form);
     }
-
 
     createNewAddress() {
         const addressLength = this.Address.controls.length;
@@ -84,5 +93,11 @@ export class UsersComponent {
             province: ['', Validators.required],
             zipcode: ['', Validators.required]
         })
+    }
+
+    openModal() {
+        const modalRef = this.modalService.open(ComfirmDialogComponent);
+        console.log(modalRef.result);
+        // modalRef.componentInstance.lesson = lesson;
     }
 }
