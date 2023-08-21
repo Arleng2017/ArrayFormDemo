@@ -24,6 +24,11 @@ const routes: Routes = [
     loadChildren: () => import('./questions/questions.module').then(m => m.QuestionsModule)
   },
   {
+    path: 'questionare',
+    component: LayoutComponent,
+    loadChildren: () => import('./questionare/questionare.module').then(m => m.QuestionareModule)
+  },
+  {
     path: 'arrays',
     component: LayoutComponent,
     loadChildren: () => import('./Arrays/arrays.module').then(m => m.ArraysModule)
@@ -37,6 +42,16 @@ const routes: Routes = [
     path: 'directive',
     component: LayoutComponent,
     loadChildren: () => import('./directive/directive.module').then(m => m.DirectiveModule)
+  },
+  {
+    path: 'alert-dialog',
+    component: LayoutComponent,
+    loadChildren: () => import('./alert-dialog/alert-dialog.module').then(m => m.AlertDialogModule)
+  },
+  {
+    path: 'e-submission',
+    component: LayoutComponent,
+    loadChildren: () => import('./e-submission/e-submission.module').then(m => m.ESubmissionModule)
   }
 ];
 

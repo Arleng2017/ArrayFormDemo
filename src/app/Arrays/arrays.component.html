@@ -1,1 +1,38 @@
-<h1>Array Module</h1>
+<app-child [data]="data"></app-child>
+<button class="btn btn-danger" (click)="sendDate()">OK</button>
+
+<div class="w-100 row">
+    <div class="form-check col-4">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+            [formControl]="customerType" value="'loan'">
+        <label class="form-check-label" for="flexRadioDefault1">
+            Default radio
+        </label>
+    </div>
+    <div class="form-check col-4">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked
+            [formControl]="customerType" value="'non-loan'">
+        <label class="form-check-label" for="flexRadioDefault2">
+            Default checked radio
+        </label>
+    </div>
+
+    <div class="form-check col-4">
+        <input class="form-check-input" type="date" name="flexRadioDefault" id="flexRadioDefault2">
+        <label class="form-check-label" for="flexRadioDefault2">
+            Date of Birth
+        </label>
+    </div>
+</div>
+
+<div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+    <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"
+        value="2000-05-05">
+</div>
+<div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
+
+<button (click)="logResult()">log result</button>

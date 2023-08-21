@@ -2,6 +2,8 @@ import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { Route, RouterModule } from "@angular/router";
 import { ArraysComponent } from "./arrays.component";
+import { ChildComponent } from "./child/child.component";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 const routes: Route[] = [
     {
@@ -13,13 +15,17 @@ const routes: Route[] = [
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+        FormsModule,
+        ReactiveFormsModule
     ],
     declarations: [
-        ArraysComponent
+        ArraysComponent,
+        ChildComponent
     ],
     exports: [
-        RouterModule
+        RouterModule,
+        
     ]
 })
 export class ArraysModule { }

@@ -15,6 +15,7 @@ export class TodoComponent {
     todoSelected: todo[] = [];
 
     form: FormGroup;
+    testNumber:any;
 
     constructor(private _configuration: ConfigurationServices, private fb: FormBuilder) {
         this._configuration.shareTodo.subscribe(res => {
@@ -46,5 +47,10 @@ export class TodoComponent {
         this.todoSelected.splice(removeTodo, 1);
         this.todo$ = [...this.todo$, value].sort((a, b) => a.id - b.id);
         console.log(this.todo$);
+    }
+
+    onAlert(){
+        const value = Number(this.testNumber).toFixed(2);
+        console.log(value);
     }
 }

@@ -19,10 +19,10 @@ const routes: Routes = [
 @NgModule({
     declarations: [
         DirectiveComponent,
-        TextTemplateDirective,
-        NavHighlightDirective,
-        TextHoverDirective,
-        CapitalLettterPipe
+        // TextTemplateDirective,
+        // NavHighlightDirective,
+        // TextHoverDirective,
+        // CapitalLettterPipe
     ],
     imports: [
         CommonModule,

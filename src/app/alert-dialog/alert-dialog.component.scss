@@ -1,0 +1,56 @@
+.btn-panel {
+    button {
+        width: 100% !important;
+        padding: 1rem;
+    }
+
+    .btn-small {
+        width: 60%;
+        max-width: 14rem;
+    }
+    .btn-medium {
+        width: 60%;
+        max-width: 30rem;
+    }
+
+    .btn-large {
+        width: 60%;
+        min-width: 30rem;
+        max-width: 40rem;
+    }
+}
+
+svg:focus,
+svg:active {
+    outline: none !important;
+    box-shadow: none;
+    border: none;
+    opacity: .5;
+}
+
+input:focus {
+    box-shadow: none;
+    border: 1px solid blue;
+}
+
+.active:hover {
+    background-color: #e3e3e3;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.info-icon,
+.bin-icon {
+    transition: linear .1s;
+}
+
+.info-icon:hover {
+    transform: scale(1.2);
+}
+
+.bin-icon:hover {
+    transform: scale(1.7);
+    color: red;
+}

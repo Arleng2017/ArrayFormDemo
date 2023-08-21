@@ -3,6 +3,7 @@
         <div class="col-12">
             <button class="btn btn-primary" (click)="createSubject()">Create Subject</button>
             <button class="btn btn-primary" (click)="openCancel()">Cancel</button>
+            <button class="btn btn-primary" (click)="openError()">Error</button>
         </div>
     </div>
     <form class="row" [formGroup]="form" (ngSubmit)="onSubmit()">

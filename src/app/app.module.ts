@@ -15,7 +15,7 @@ import { QuestionsModule } from './questions/questions.module';
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +23,8 @@ import { QuestionsModule } from './questions/questions.module';
     AppRoutingModule,
     SharedModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

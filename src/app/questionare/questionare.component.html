@@ -1,0 +1,28 @@
+<div class="container" [ngClass]="isSubmitted ? 'was-validated' : ''">
+  <form class="row" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="col-12" formArrayName="answers">
+      <div *ngFor="let answer of answers.controls; let i = index;" [formGroupName]="i" class="mt-4   col-12 "
+        [ngClass]="answer.status == 'INVALID' && isSubmitted ? 'border-danger': ''">
+        <h5>{{questions[i].question_th}}</h5>
+
+        <div class="form-check" *ngFor="let choice of questions[i].choice">
+          <input class="form-check-input "
+            [ngClass]="answer.get('choiceSeleted')?.errors && isSubmitted ? 'border-danger':''" type="radio"
+            formControlName="questionValue" [id]="questions[i].question_id" [value]="choice.choice_id" [required]="true"
+            (change)="answerSelect(i)">
+          <label for="" class="form-check-label "
+            [ngClass]="answer.get('questionValue')?.errors && isSubmitted ? 'text-danger':''">{{choice.choice_value}}</label>
+        </div>
+
+        <div *ngIf="answer.get('questionType')?.value === 7">
+          <input type="text" class="form-control" placeholder="กรอกรายละเอียดเพิ่มเติม" formControlName="questionValue"
+            [required]="answer.get('questionValue')?.errors && isSubmitted ? true : false">
+        </div>
+      </div>
+      <div class="my-4 text-end">
+        <button type="button" class="btn btn-danger m-4">ยกเลิก</button>
+        <button type="submit" class="btn btn-primary ">บันทึก</button>
+      </div>
+    </div>
+  </form>
+</div>

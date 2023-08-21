@@ -11,7 +11,6 @@ import { CreateSubjectDialogComponent } from "./create-subject-dialog/create-sub
 })
 
 export class SubjectsComponent {
-
     isSubmitted: boolean = false;
     form: FormGroup = this.fb.group({
         teacherName: ['', Validators.required],
@@ -63,6 +62,12 @@ export class SubjectsComponent {
 
     openCancel() {
         const value = this.dialog.openCancelDialog().subscribe(res => {
+            console.log(res, 'confirm result');
+        });
+    }
+
+    openError() {
+        const value = this.dialog.openErrorDialog().subscribe(res => {
             console.log(res, 'confirm result');
         });
     }
